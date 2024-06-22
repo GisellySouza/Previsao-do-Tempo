@@ -1,0 +1,178 @@
+*{
+    margin: 0px;
+    font-family: "Inter";
+    
+     
+}
+body{
+    background: rgba(242, 242, 242, 1);
+}
+
+#cabecalho{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 70vw 10vw 20vw;
+    font-size: 12px;
+    align-items: center;
+    background: rgba(12, 112, 242, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 15px 30px 15px 20px;
+    
+
+}
+
+#dnc{
+    margin-left: 15px;
+    font-size: 30px;
+       
+}
+#nuvem{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 55vw 30vw;
+    align-items: center;
+    padding: 100px 100px 100px 150px;
+    font-family: Inter;
+    font-size: 25px;
+    color: rgba(31, 31, 31, 1);
+    font-weight: 800;
+
+}
+
+#img-nuvem{
+    width: 255px;
+    height: 197px;
+    margin-left: 70px;
+  
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 859px;
+    height: 800px;
+    font-family: "Inter";
+    color: rgba(0, 0, 0, 1);
+    background: rgba(255, 255, 255, 1);
+    margin: auto;
+    border-radius: 15px;
+    padding: 40px;
+    font-size: 25px;
+    
+}
+
+
+
+
+input{
+    width: 95%;
+    height: 56px;
+    border-radius: 10px;
+    opacity: 0px;
+    background: rgba(242, 242, 242, 0.9);
+    padding: 5px 10px 5px 25px;
+    border: none;
+    font-size: 20px;
+
+}
+
+.lat{
+    width: 45%;
+    height: 56px;
+    gap: 0px;
+    border-radius: 10px;
+   
+
+
+}
+
+button{
+    width: 859px;
+    height: 56px;
+    border-radius: 10px;
+    background: rgba(12, 112, 242, 0.9);
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 600;
+    margin: auto;
+    
+
+}
+
+
+
+.resultado{
+    display: grid;
+    grid-auto-flow: column;
+    margin: 100px 20% 10px 20%;
+    align-items: center;
+    font-size: 25px;
+}
+
+.logos{
+    width: 130px;
+    height: 133px;
+    align-items:center;
+}
+
+
+
+
+
+#endereco{
+    display: grid;
+    grid-auto-flow: column;
+    columns: auto;
+    width: 80%;
+    background: rgba(12, 112, 242, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border-radius: 20px 20px 0px 0px ;
+}
+
+#result-end{
+    display: grid;
+    grid-auto-flow: column;
+    columns: auto;
+    width: 80%;
+    background: rgba(255, 255, 255, 1);
+    color: rgba(31, 31, 31, 1);
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border-radius: 0px 0px 20px 20px ;
+    padding: 20px;    
+}
+
+#result-tempo{
+    text-align: center;
+    width: 80%;
+    border-radius: 30px;
+    
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgba(12, 112, 242, 1);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 1);
+
+
+}
+#rodapé{
+    
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    background: rgba(12, 112, 242, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 40px ;
+    margin-top: 150px;
+
+}

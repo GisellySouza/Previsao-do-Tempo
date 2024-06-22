@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+<script>
+    async function getAddressBycep(){
+        const cep = document.getElementById('cep').value;
+        try{
+            const response = await fetch(`http://viacep.com.br/ws/${cep}/json/`);
+            const data = await response.json();
+            console.log(data);
+            document.getElementById('rua').value = data.logradouro;
+            document.getElementById('bairro').value = data.bairro;
+            document.getElementById('cidade').value = data.localidade;
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    
+    async function getPrevisão(){
+        const lat = document.getElementById('latitude').value;
+        const lon = document.getElementById('longitude').value;
+        try{
+            const response = await fetch(
+                `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,apparent_temperature,precipitation_probability`
+            );
+            const data = await response.json();
+            console.log(data);
+            document.getElementById('result-tempo').innerHTML = "";
+            for
+                (let index = 0; index< data.hourly.temperature_2m.length; index++){
+                    document.getElementById('result-tempo').innerHTML+= `<div>${data.hourly.time[index]} - ${data.hourly.temperature_2m[index]}</div>`;
+
+            } 
+        } catch (error) {
+                alert(error.message);
+
+            }
+             
+            
+    }
+    
+</script>
+
+
+
+</head>
+
+
+
+<body>
+
+    <header id="cabecalho">
+        <h1 id="dnc">DncWeather</h1>
+        <h2>Endereços</h2>
+        <h2>Previsão do tempo</h2>
+    </header>
+    <div id="nuvem">
+        <h1>Descubra Mais com Precisão:<br>
+            Previsões do Tempo e endereços<br>
+            em tempo real.</h1>
+        <img src="Nuvem.svg" id="img-nuvem">
+    </div>
+    <div>
+        <form><br>
+            <label>Primeiro Nome:</label><br>
+            <input class="insira" type="text" placeholder="Insira seu primeiro nome:"><br>
+            
+            <label>E-mail:</label><br>
+            <input class="insira" type="email" placeholder="Insira seu e-mail"><br>
+            
+            <label>Digite o CEP:</label><br>
+            <input class="insira" type="text" id="cep" placeholder="Insira o CEP"><br>
+
+            <button type="button" onclick="getAddressBycep()"> Acessar</button><br><br>
+            
+            <label >Digite a latitude e longitude para saber a previsão:</label><br>
+            <div id="long">
+                <input class="lat" id="latitude" type="number" placeholder="Latitude">
+                <input class="lat" id="longitude" type="number" placeholder="Longitude">
+            </div><br>
+            <button type="button" onclick="getPrevisão()"> Acessar</button>
+        </form>    
+    </div>
+    <div id="div-results">
+        <div class="resultado">
+            <h1>Resultado da busca por CEP:</h1>
+            <img class="logos" src="localizador.svg" >
+        </div>
+        <div id="endereco">
+            <h2>Logradouro/nome</h2>
+            <h2>Bairro/Distrito</h2>
+            <h2>Localidade/UF</h2>
+        </div>
+        <div id="result-end">
+            <h2 id="rua">Justino Cobra</h2>
+            <h2 id="bairro">Vila Ema</h2>
+            <h2 id="estado">SP</h2>
+        </div>
+
+
+        <div class="resultado">
+            <h1>Previsão do tempo na região:</h1>
+            <img class="logos" src="nuvemP.svg" >
+        </div>
+        <div id="result-tempo">
+            <p>Previsão de tempo de acordo com a região: 24° C</p>
+
+        </div>
+        
+    </div>
+    <div id="rodapé">
+        <p id="final">Termos de Uso | Política de Privacidade</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+</html>
