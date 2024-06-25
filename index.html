@@ -15,9 +15,9 @@
             const response = await fetch(`http://viacep.com.br/ws/${cep}/json/`);
             const data = await response.json();
             console.log(data);
-            document.getElementById('rua').value = data.logradouro;
-            document.getElementById('bairro').value = data.bairro;
-            document.getElementById('cidade').value = data.localidade;
+            document.getElementById('rua').innerHTML = data.logradouro;
+            document.getElementById('bairro').innerHTML = data.bairro;
+            document.getElementById('estado').innerHTML = data.localidade;
         } catch (error) {
             alert(error.message);
         }
@@ -46,7 +46,13 @@
              
             
     }
-    
+
+      async function getCepData(){
+        await getAddressBycep() 
+        await getPrevisão()
+      }
+
+      
 </script>
 
 
@@ -79,14 +85,14 @@
             <label>Digite o CEP:</label><br>
             <input class="insira" type="text" id="cep" placeholder="Insira o CEP"><br>
 
-            <button type="button" onclick="getAddressBycep()"> Acessar</button><br><br>
+            
             
             <label >Digite a latitude e longitude para saber a previsão:</label><br>
             <div id="long">
                 <input class="lat" id="latitude" type="number" placeholder="Latitude">
                 <input class="lat" id="longitude" type="number" placeholder="Longitude">
             </div><br>
-            <button type="button" onclick="getPrevisão()"> Acessar</button>
+            <button type="button" onclick="getCepData()"> Acessar</button>
         </form>    
     </div>
     <div id="div-results">
@@ -100,9 +106,20 @@
             <h2>Localidade/UF</h2>
         </div>
         <div id="result-end">
-            <h2 id="rua">Justino Cobra</h2>
-            <h2 id="bairro">Vila Ema</h2>
-            <h2 id="estado">SP</h2>
+            <div id="rua">
+                <h2 >Justino Cobra</h2>
+            </div>
+
+            <div id="bairro">
+                <h2>Vila Ema</h2>
+            </div>
+            
+            <div id="estado">
+                <h2 >SP</h2>
+            </div>
+            
+            
+           
         </div>
 
 
