@@ -97,10 +97,16 @@ button{
     font-size: 28px;
     font-weight: 600;
     margin: auto;
+
     
 
 }
 
+button:hover{
+    translate: translatey(-5);
+    box-shadow: 0px 15px 15px 0px  rgba(82, 157, 255, 0.9);
+    animation-duration: 0,5s;
+}
 
 
 .resultado{
