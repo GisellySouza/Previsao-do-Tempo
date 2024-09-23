@@ -1,5 +1,3 @@
- 
-
-Consumo de API de previção do tempo e consulta de CEP com tratamento de erro.
+Site de previsão do tempo com consumo de API de latitude, longitude, CEP  e tratamento de erro.
 
 Link do Netlify: https://previso-do-tempo-cep.netlify.app/
